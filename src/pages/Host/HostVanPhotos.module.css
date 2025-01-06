@@ -1,0 +1,9 @@
+.hostVanImagesContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding-top: 24px;
+}
+
+.hostVanImagesContainer img {
+  max-width: 100%;
+}

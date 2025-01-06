@@ -1,0 +1,16 @@
+.hostNav {
+  display: flex;
+}
+
+.hostNav a {
+  text-decoration: none;
+  color: #4D4D4D;
+  font-weight: 500;
+  padding: 5px 20px;
+}
+
+.hostNav a:hover {
+  color: #161616;
+  text-decoration: underline;
+  font-weight: 600;
+}

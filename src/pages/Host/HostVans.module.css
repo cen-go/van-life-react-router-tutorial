@@ -1,0 +1,37 @@
+.hostVanLinkWrapper {
+  color: unset;
+  text-decoration: unset;
+}
+
+.hostVansList {
+  padding-inline: 26px;
+}
+
+.hostVansTitle {
+  padding-inline: 26px;
+}
+
+.hostVanSingle {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  margin-bottom: 15px;
+  padding-block: 18px;
+  padding-left: 24px;
+}
+
+.hostVanSingle > img {
+  height: 70px;
+  border-radius: 5px;
+  margin-right: 17px;
+}
+
+.hostVanInfo h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-block: 10px;
+}
+
+.hostVanInfo p {
+  margin-block: 10px;
+}

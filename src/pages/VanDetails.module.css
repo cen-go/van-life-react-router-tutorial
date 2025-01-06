@@ -1,0 +1,53 @@
+.vanDetailContainer {
+  padding: 27px;
+}
+
+.vanDetailContainer .back-button {
+  color: black;
+  text-decoration: none;
+}
+
+.vanDetailContainer .back-button:visited {
+  
+}
+
+.vanDetailContainer .back-button span {
+  text-decoration: underline;
+}
+
+.vanDetail {
+  display: flex;
+  flex-direction: column;
+  color: #161616;
+}
+
+.vanDetail img {
+  border-radius: 5px;
+  margin-block: 47px;
+  width: 100%;
+}
+
+.vanDetail h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.vanDetail > i {
+  align-self: flex-start;
+}
+
+.vanDetail .vanPrice {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.vanDetail .vanPrice span {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.vanDetail .linkButton {
+  background-color: #FF8C38;
+  color: white;
+  font-size: 1.125rem;
+}
