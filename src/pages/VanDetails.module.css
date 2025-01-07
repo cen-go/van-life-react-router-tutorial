@@ -50,4 +50,14 @@
   background-color: #FF8C38;
   color: white;
   font-size: 1.125rem;
+  padding: 0.6em 1.2em;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.vanDetail .linkButton:hover {
+  background-color: #fb8d52;
+  transform: translate(1px, 1px);
 }

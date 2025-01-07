@@ -1,6 +1,8 @@
 import { useParams, Link, NavLink, Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 
+import classes from "./HostVanDetail.module.css";
+
 const activeLink = {
   fontWeight: "bold",
   textDecoration: "underline",
@@ -30,22 +32,22 @@ export default function HostVanDetail() {
   }
 
   return (
-    <section className="host-van-detail-page">
+    <section className={classes.hostVanDetailPage}>
       <Link to=".." relative="path" className="back-button">
         &larr; <span>Back to all vans</span>
       </Link>
-      <div className="host-van-detail-layout-container">
-        <div className="host-van-detail">
+      <div className={classes.hostVanDetailLayoutContainer}>
+        <div className={classes.hostVanDetail}>
           <img src={van.imageUrl} alt={`image of ${van.name}`} />
-          <div className="host-van-detail-info-text">
+          <div className={classes.hostVanDetailInfoText}>
             <i className={`van-type ${van.type} selected`}>{van.type}</i>
             <h2>{van.name}</h2>
-            <p className="van-price">
+            <p className={classes.vanPrice}>
               <span>{`$${van.price}`}</span>/day
             </p>
           </div>
         </div>
-        <nav className="host-van-detail-tabs">
+        <nav className={classes.hostVanDetailTabs}>
           <NavLink
             to="."
             style={({ isActive }) => (isActive ? activeLink : null)}

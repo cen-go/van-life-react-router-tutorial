@@ -13,12 +13,14 @@ body::-webkit-scrollbar {
 }
 
 body {
-  max-width: 660px;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
 :root {
+  max-width: 800px;
+  margin-right: auto;
+  margin-left: auto;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -77,38 +79,6 @@ h1 {
   line-height: 1.1;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
 /*** VAN PAGES ***/
 .van-list-container {
   padding-inline: 23px
@@ -119,7 +89,7 @@ button:focus-visible {
   grid-template-columns: 1fr 1fr;
   justify-items: center;
   gap: 34px;
-  margin-top: 57px;
+  margin-top: 40px;
 }
 
 .van-card a {
@@ -139,13 +109,13 @@ button:focus-visible {
 }
 
 .van-list-container button {
-  margin-right: 20px;
+  margin-right: 12px;
   cursor: pointer;
 }
 
 .van-type {
   height: 34px;
-  padding: 6px 26px;
+  padding: 6px 18px;
   font-style: normal;
   font-weight: 500;
   border: none;
@@ -182,7 +152,7 @@ button:focus-visible {
 .van-type.clear-filters {
   margin-left: -20px;
   height: 34px;
-  padding: 6px 26px;
+  padding: 6px 18px;
   font-style: normal;
   font-weight: 500;
   border: none;
@@ -194,67 +164,6 @@ button:focus-visible {
 
 i[class*='van-type-'] {
   padding: 7px 14px;
-}
-
-
-/* VAN DETAIL PAGE */
-
-.host-van-detail-page {
-  padding-top: 40px;
-}
-
-.host-van-detail-layout-container {
-  background-color: white;
-  padding: 16px 24px;
-  margin: 30px 26px;
-  border-radius: 8px;
-}
-
-.host-van-detail {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 32px;
-  margin-bottom: 24px;
-}
-
-.host-van-detail img {
-  max-width: 100%;
-  border-radius: 5px;
-}
-
-.host-van-detail-info-text {
-  padding-top: 16px;
-}
-
-.van-price {
-  font-size: 1.25rem;
-  margin-bottom: 10px;
-}
-
-.van-price span {
-  font-weight: 600;
-  font-size: 1.3rem;
-}
-
-.host-van-detail-tabs {
-  display: flex;
-}
-
-.host-van-detail-tabs a {
-  text-decoration: none;
-  color: #4D4D4D;
-  font-weight: 500;
-  padding: 5px 20px 5px 0;
-}
-
-.host-van-detail-tabs a:hover {
-  color: #161616;
-  text-decoration: underline;
-  font-weight: 600;
-}
-
-.van-detail-container {
-  padding: 27px;
 }
 
 .back-button {

@@ -1,0 +1,53 @@
+.hostVanDetailPage {
+  padding-top: 40px;
+}
+
+.hostVanDetailLayoutContainer {
+  background-color: white;
+  padding: 16px 24px;
+  margin: 30px 26px;
+  border-radius: 8px;
+}
+
+.hostVanDetail {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 32px;
+  margin-bottom: 24px;
+}
+
+.hostVanDetail img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.hostVanDetailInfoText {
+  padding-top: 16px;
+}
+
+.vanPrice {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.vanPrice span {
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.hostVanDetailTabs {
+  display: flex;
+}
+
+.hostVanDetailTabs a {
+  text-decoration: none;
+  color: #4D4D4D;
+  font-weight: 500;
+  padding: 5px 20px 5px 0;
+}
+
+.hostVanDetailTabs a:hover {
+  color: #161616;
+  text-decoration: underline;
+  font-weight: 600;
+}
