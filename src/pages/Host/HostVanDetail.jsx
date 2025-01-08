@@ -33,7 +33,7 @@ export default function HostVanDetail() {
 
   return (
     <section className={classes.hostVanDetailPage}>
-      <Link to=".." relative="path" className="back-button">
+      <Link to="/host/vans" className="back-button">
         &larr; <span>Back to all vans</span>
       </Link>
       <div className={classes.hostVanDetailLayoutContainer}>

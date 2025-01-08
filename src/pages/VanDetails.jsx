@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import classes from "./VanDetails.module.css";
 
 export default function VanDetails() {
   const [van, setVan] = useState(null);
   const params = useParams();
+  const location = useLocation();
+  const searchState = location.state?.search ?? "";
+
+  const typeParam = new URLSearchParams(searchState).get("type");
 
   useEffect(() => {
     async function fetchVanDetails(vanId) {
@@ -25,6 +29,9 @@ export default function VanDetails() {
 
   return (
     <section className={classes.vanDetailContainer}>
+      <Link to={`../?${searchState}`} relative="path" className="back-button">
+        &larr; <span>Back to {searchState ? typeParam : "all"} vans</span>
+      </Link>
       {van ? (
         <article className={classes.vanDetail}>
           <img src={van.imageUrl} alt={`image of ${van.name}`} />

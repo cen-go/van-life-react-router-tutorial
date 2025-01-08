@@ -27,6 +27,7 @@ export default function HostVans() {
       to={van.id}
       key={van.id}
       className={classes.hostVanLinkWrapper}
+      aria-label={`link to host van named ${van.name}`}
     >
       <div className={classes.hostVanSingle} key={van.id}>
         <img src={van.imageUrl} alt={`Photo of ${van.name}`} />

@@ -1,0 +1,23 @@
+.notFound {
+  text-align: center;
+  margin-top: 64px;
+}
+
+.notFound a {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  background-color: #161616;
+  border: none;
+  margin-top: 24px;
+  padding: 1rem 4rem;
+  color: white;
+  font-weight: 700;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.1s ease-in-out;
+}
+
+.notFound a:hover {
+  background-color: #363636;
+}

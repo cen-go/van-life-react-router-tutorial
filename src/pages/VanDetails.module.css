@@ -2,9 +2,9 @@
   padding: 27px;
 }
 
-.vanDetailContainer .back-button {
+.vanDetailContainer a {
   color: black;
-  text-decoration: none;
+  padding: 0;
 }
 
 .vanDetailContainer .back-button:visited {
