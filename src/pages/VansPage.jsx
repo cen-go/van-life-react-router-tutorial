@@ -1,30 +1,18 @@
-import { useState, useEffect } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams, useLoaderData } from "react-router-dom";
 
 import { fetchVans } from "../api";
 
+export async function loader() {
+  const data = await fetchVans();
+  return data;
+}
+
 export default function VansPage() {
-  const [vans, setVans] = useState([]);
-  const [isFetching, setIsFetching] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
-  const [error, setError] = useState(null);
 
   const typeFilter = searchParams.get("type");
 
-  useEffect(() => {
-    async function loadVans() {
-      setIsFetching(true);
-      try {
-        const LoadedVans = await fetchVans();
-        setVans(LoadedVans);
-      } catch (err) {
-        setError(err);
-      } finally {
-        setIsFetching(false);
-      }
-    }
-    loadVans();
-  }, []);
+  const vans = useLoaderData();
 
   const vansListContent = (
     typeFilter ? vans.filter((van) => van.type === typeFilter) : vans
@@ -85,19 +73,7 @@ export default function VansPage() {
           </button>
         )}
       </div>
-      {isFetching && (
-        <p className="status-notifier" aria-live="polite">
-          Loading vans...
-        </p>
-      )}
-      {error && (
-        <p className="status-notifier" aria-live="assertive">
-          There was an error: {error.message}
-        </p>
-      )}
-      {!error && vansListContent && (
-        <div className="van-list">{vansListContent}</div>
-      )}
+      {<div className="van-list">{vansListContent}</div>}
     </section>
   );
 }
