@@ -5,3 +5,7 @@ export default function Income() {
     </>
   );
 }
+
+export async function loader() {
+  return null;
+}

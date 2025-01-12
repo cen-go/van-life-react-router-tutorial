@@ -11,3 +11,7 @@ export default function HostVanPhotos() {
     </div>
   );
 }
+
+export async function loader() {
+  return null;
+}

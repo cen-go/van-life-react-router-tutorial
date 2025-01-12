@@ -14,3 +14,7 @@ export default function HostVanInfo() {
     </div>
   );
 }
+
+export async function loader() {
+  return null;
+}

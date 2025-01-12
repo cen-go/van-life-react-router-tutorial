@@ -5,3 +5,7 @@ export default function Reviews() {
     </>
   );
 }
+
+export async function loader() {
+  return null;
+}

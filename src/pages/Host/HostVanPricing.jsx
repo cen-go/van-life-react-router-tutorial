@@ -11,3 +11,7 @@ export default function HostVanPricing() {
     </p>
   );
 }
+
+export async function loader() {
+  return null;
+}

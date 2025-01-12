@@ -1,26 +1,15 @@
-import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { Link, useLoaderData } from "react-router-dom";
+
+import { fetchHostVans } from "../../api";
 import classes from "./HostVans.module.css";
 
-export default function HostVans() {
-  const [hostVans, setHostVans] = useState([]);
+export async function loader() {
+  const data = await fetchHostVans();
+  return data;
+}
 
-  useEffect(() => {
-    fetch("/api/host/vans")
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error("Something went wrong");
-        }
-      })
-      .then((data) => {
-        setHostVans(data.vans);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
+export default function HostVans() {
+  const hostVans = useLoaderData();
 
   const hostVansElements = hostVans.map((van) => (
     <Link
@@ -52,3 +41,4 @@ export default function HostVans() {
     </section>
   );
 }
+

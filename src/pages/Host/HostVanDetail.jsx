@@ -1,6 +1,6 @@
-import { useParams, Link, NavLink, Outlet } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Link, NavLink, Outlet, useLoaderData } from "react-router-dom";
 
+import { fetchHostVans } from "../../api";
 import classes from "./HostVanDetail.module.css";
 
 const activeLink = {
@@ -9,27 +9,14 @@ const activeLink = {
   color: "#161616",
 };
 
+export async function loader({ params }) {
+  const id = params.vanId;
+  const data = await fetchHostVans(id);
+  return data[0];
+}
+
 export default function HostVanDetail() {
-  const { vanId } = useParams();
-  const [van, setVan] = useState(null);
-
-  useEffect(() => {
-    fetch(`/api/host/vans/${vanId}`)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error("Something went wrong");
-        }
-      })
-      .then((data) => {
-        setVan(data.vans[0]);
-      });
-  }, [vanId]);
-
-  if (!van) {
-    return <h2>Loading...</h2>;
-  }
+  const van = useLoaderData();
 
   return (
     <section className={classes.hostVanDetailPage}>
@@ -73,3 +60,4 @@ export default function HostVanDetail() {
     </section>
   );
 }
+
