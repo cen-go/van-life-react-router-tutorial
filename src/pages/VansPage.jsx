@@ -1,10 +1,10 @@
-import { Link, useSearchParams, useLoaderData } from "react-router-dom";
+import { Link, useSearchParams, useLoaderData, defer, Await } from "react-router-dom";
+import { Suspense } from "react";
 
 import { fetchVans } from "../api";
 
-export async function loader() {
-  const data = await fetchVans();
-  return data;
+export function loader() {
+  return defer({ vans: fetchVans() });
 }
 
 export default function VansPage() {
@@ -15,26 +15,32 @@ export default function VansPage() {
   const vans = useLoaderData();
 
   const vansListContent = (
-    typeFilter ? vans.filter((van) => van.type === typeFilter) : vans
-  ).map((van) => (
-    <article key={van.id} className="van-card">
-      <Link
-        to={van.id}
-        state={{ search: searchParams.toString() }}
-        aria-label={`View details for ${van.name} price of ${van.price} per day`}
-      >
-        <img src={van.imageUrl} alt={`image of ${van.name}`} />
-        <div className="van-info">
-          <h3>{van.name}</h3>
-          <p>
-            ${van.price}
-            <span>/day</span>
-          </p>
-        </div>
-        <i className={`van-type ${van.type} selected`}>{van.type}</i>
-      </Link>
-    </article>
-  ));
+    <Await resolve={vans.vans}>
+      {(vans) =>
+        (typeFilter ? vans.filter((van) => van.type === typeFilter) : vans).map(
+          (van) => (
+            <article key={van.id} className="van-card">
+              <Link
+                to={van.id}
+                state={{ search: searchParams.toString() }}
+                aria-label={`View details for ${van.name} price of ${van.price} per day`}
+              >
+                <img src={van.imageUrl} alt={`image of ${van.name}`} />
+                <div className="van-info">
+                  <h3>{van.name}</h3>
+                  <p>
+                    ${van.price}
+                    <span>/day</span>
+                  </p>
+                </div>
+                <i className={`van-type ${van.type} selected`}>{van.type}</i>
+              </Link>
+            </article>
+          )
+        )
+      }
+    </Await>
+  );
 
   return (
     <section id="vans" className="van-list-container">
@@ -73,7 +79,9 @@ export default function VansPage() {
           </button>
         )}
       </div>
-      {<div className="van-list">{vansListContent}</div>}
+      <Suspense fallback={<div className="loader"></div> }>
+        {<div className="van-list">{vansListContent}</div>}
+      </Suspense>
     </section>
   );
 }

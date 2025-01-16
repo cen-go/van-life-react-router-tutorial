@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Login from "./pages/Login";
+import Login, {loader as LoginLoader, action as loginAction} from "./pages/Login";
 import VansPage, { loader as vansPageLoader} from "./pages/VansPage";
 import VanDetails, {loader as vanDetailLoader} from "./pages/VanDetails";
 import HostLayout from "./components/HostLayout";
@@ -28,12 +28,13 @@ const router = createBrowserRouter([
       {path: "*", element: <NotFound />},
       { index: true, element: <Home /> },
       { path: "about", element: <About /> },
-      { path: "login", element: <Login /> },
+      { path: "login", element: <Login />, loader: LoginLoader, action: loginAction },
       { path: "vans", element: <VansPage />, loader: vansPageLoader, errorElement: <Error />, },
-      { path: "vans/:vanId", element: <VanDetails />, loader: vanDetailLoader },
+      { path: "vans/:vanId", element: <VanDetails />, loader: vanDetailLoader, errorElement: <Error /> },
       {
         path: "host",
         element: <HostLayout />,
+        errorElement: <Error />,
         children: [
           { index: true, element: <Dashboard />, loader: dashboardLoader },
           { path: "income", element: <Income />, loader: incomeLoader },
@@ -56,36 +57,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return (
-    <RouterProvider router={router} />
-  );
-
-  // return (
-  //   <>
-  //     <BrowserRouter>
-  //       <Routes>
-  //         <Route path="/" element={<Layout />}>
-  //           <Route index element={<Home />} />
-  //           <Route path="about" element={<About />} />
-  //           <Route path="vans" element={<VansPage />} />
-  //           <Route path="vans/:vanId" element={<VanDetails />} />
-  //           <Route path="host" element={<HostLayout />}>
-  //             <Route index element={<Dashboard />} />
-  //             <Route path="income" element={<Income />} />
-  //             <Route path="reviews" element={<Reviews />} />
-  //             <Route path="vans" element={<HostVans />} />
-  //             <Route path="vans/:vanId" element={<HostVanDetail />}>
-  //               <Route index element={<HostVanInfo />} />
-  //               <Route path="pricing" element={<HostVanPricing />} />
-  //               <Route path="photos" element={<HostVanPhotos />} />
-  //             </Route>
-  //           </Route>
-  //           <Route path="*" element={<NotFound />} />
-  //         </Route>
-  //       </Routes>
-  //     </BrowserRouter>
-  //   </>
-  // );
+  return <RouterProvider router={router} />
 }
 
 export default App;

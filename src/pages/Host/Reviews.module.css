@@ -1,0 +1,60 @@
+.hostReviews {
+  padding-inline: 26px;
+  color: #161616;
+  margin-top: 28px;
+}
+
+.hostReviews .topText {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.hostReviews .topText > h2 {
+  font-weight: 700;
+  margin: 0;
+  margin-right: 20px;
+}
+
+.hostReviews .topText > p {
+  margin: 0;
+  color: #4d4d4d;
+}
+
+.hostReviews .topText > p span {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.hostReviews > img {
+  margin-bottom: 36px;
+}
+
+.hostReviews .review {
+  margin-block: 25px;
+}
+
+.hostReviews .review .info {
+  display: flex;
+}
+
+.hostReviews .review .name {
+  color: #161616;
+  margin-right: 10px;
+  font-weight: 600;
+}
+
+.hostReviews .review .date {
+  color: #8c8c8c;
+}
+
+.hostReviews hr {
+  background-color: #c7c7c7;
+  height: 1px;
+  border: 0;
+}
+
+.hostReviews .reviewStar {
+  color: #ff8c38;
+  margin-right: 5px;
+}

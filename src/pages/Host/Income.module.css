@@ -1,0 +1,54 @@
+.hostIncome {
+  padding-inline: 26px;
+  color: #161616;
+}
+
+.hostIncome > p {
+  color: #4d4d4d;
+}
+
+.hostIncome > p span {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.hostIncome > h2 {
+  color: #161616;
+  font-weight: 800;
+}
+
+.hostIncome .infoHeader > p {
+  color: #4d4d4d;
+}
+
+.hostIncome .infoHeader > p span {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.hostIncome .infoHeader > h3 {
+  font-weight: 700;
+  font-size: 24px;
+  margin-top: 60px;
+}
+
+.hostIncome .transaction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  margin-bottom: 31px;
+  padding: 35px 29px;
+  border-radius: 6px;
+}
+.hostIncome .transaction > h3 {
+  font-size: 36px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.hostIncome .transaction > p {
+  font-weight: 500;
+  font-size: 20px;
+  color: #4d4d4d;
+}

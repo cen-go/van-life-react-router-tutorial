@@ -10,6 +10,10 @@ export default function Navbar() {
     color: "#161616",
   };
 
+  function fakeLogOut() {
+    localStorage.removeItem("loggedin");
+  }
+
   return (
     <header>
       <Link className={classes.siteLogo} to="/">
@@ -46,6 +50,7 @@ export default function Navbar() {
               <img src={avatarIcon} className="login-icon" />
             </Link>
           </li>
+          <button onClick={fakeLogOut}>X</button>
         </ul>
       </nav>
     </header>

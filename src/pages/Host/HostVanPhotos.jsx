@@ -1,6 +1,7 @@
 import { useOutletContext } from "react-router-dom";
 
 import classes from "./HostVanPhotos.module.css";
+import { requireAuth } from "../../util";
 
 export default function HostVanPhotos() {
   const van = useOutletContext();
@@ -12,6 +13,7 @@ export default function HostVanPhotos() {
   );
 }
 
-export async function loader() {
+export async function loader({ request }) {
+  await requireAuth(request);
   return null;
 }
